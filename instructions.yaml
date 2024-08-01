@@ -594,6 +594,49 @@
 # ---
 # ---
 
+- icon: '@clearbit/discord.com'
+  name: Send Discord Message
+  alias: '@templates/instructions/discord/message/send'
+  description: Send a message to a specific channel in Discord
+  tags:
+    - discord
+    - message
+    - send
+  instruction: |
+    ```fetch
+    POST https://discord.com/api/v9/channels/$[channel_id|Channel ID]/messages HTTP/1.1
+    Authorization: Bot ${SECRET_DISCORD_BOT_TOKEN}
+    Content-Type: application/json
+
+    {
+      "content": "$[message|Message content]"
+    }
+    ```
+
+- icon: '@clearbit/discord.com'
+  name: Trigger Discord Webhook
+  alias: '@templates/instructions/discord/webhook/trigger'
+  description: Trigger a Discord webhook with data
+  tags:
+    - discord
+    - webhook
+    - trigger
+  instruction: |
+    ```fetch
+    POST ((discord.com webhook url)) HTTP/1.1
+    Content-Type: application/json
+
+    {
+      "content": "$[message|Message content]",
+      "username": "$[username|Webhook Username]",
+      "avatar_url": "$[avatar_url|Webhook Avatar URL]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
 - icon: '@clearbit/trello.com'
   name: Create Trello Card
   alias: '@templates/instructions/trello/card/create'
