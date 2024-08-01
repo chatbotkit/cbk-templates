@@ -34,7 +34,7 @@ We welcome external contributions to expand our template library. If you have a 
    ```
 7. **Create a Pull Request**: Open a pull request from your new branch to the main branch of this repository.
 
-Once your pull request is reviewed and merged, your template will be included in the official ChatbotKit template list.
+Once your pull request is reviewed and merged, your template will be included in the official ChatbotKit template list. This also means that you will get a do follow backlink from us as a thank you.
 
 ## Contact
 
