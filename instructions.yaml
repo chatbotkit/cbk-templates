@@ -13,7 +13,7 @@
 # ---
 # ---
 
-- icon: @heroicons/circle-stack
+- icon: '@heroicons/circle-stack'
   name: Search Dataset
   alias: '@templates/instructions/dataset/search'
   description: Search a dataset for specific keywords or filters
@@ -29,7 +29,7 @@
 # ---
 # ---
 
-- icon: @heroicons/globe-alt
+- icon: '@heroicons/globe-alt'
   name: Fetch Web Page
   alias: '@templates/instructions/webpage/fetch'
   description: Fetch the content of a web page using a URL and convert it to text
@@ -41,7 +41,7 @@
     $[url|the url of the page to fetch]
     ```
 
-- icon: @heroicons/globe-alt
+- icon: '@heroicons/globe-alt'
   name: Fetch Web API
   alias: '@templates/instructions/webapi/get'
   description: Fetch data from a web API using a URL and optional parameters
@@ -54,7 +54,7 @@
     Authorization: Bearer ${SECRET_API_KEY}
     ```
 
-- icon: @heroicons/globe-alt
+- icon: '@heroicons/globe-alt'
   name: Post Data to Web API
   alias: '@templates/instructions/webapi/post'
   description: Post data to a web API using a URL and JSON payload
@@ -72,7 +72,7 @@
     }
     ```
 
-- icon: @heroicons/globe-alt
+- icon: '@heroicons/globe-alt'
   name: Post Data to Web API with Parameters
   alias: '@templates/instructions/webapi/post-params'
   description: Post data to a web API using a URL and form parameters
@@ -95,7 +95,7 @@
 # ---
 # ---
 
-- icon: @heroicons/at-symbol
+- icon: '@heroicons/at-symbol'
   name: Send Email
   alias: '@templates/instructions/email/send'
   description: Send an email to a specified recipient using an SMTP server
@@ -111,7 +111,7 @@
 # ---
 # ---
 
-- icon: @heroicons/document-text
+- icon: '@heroicons/document-text'
   name: Generate Text
   alias: '@templates/instructions/text/generate'
   description: Generate text
@@ -127,7 +127,7 @@
 # ---
 # ---
 
-- icon: @heroicons/photo
+- icon: '@heroicons/photo'
   name: Generate Image
   alias: '@templates/instructions/image/generate'
   description: Generate an image
@@ -139,7 +139,7 @@
     ((instructions how to generate an image))
     ```
 
-- icon: @heroicons/photo
+- icon: '@heroicons/photo'
   name: Generate Image Using StableDiffusion
   alias: '@templates/instructions/image/stablediffusion'
   description: Generate an image using the StableDiffusion model
@@ -152,7 +152,7 @@
     ((instructions how to generate an image using StableDiffusion))
     ```
 
-- icon: @heroicons/photo
+- icon: '@heroicons/photo'
   name: Generate Image Using DALL-E 3
   alias: '@templates/instructions/image/dalle3'
   description: Generate an image using the DALL-E 3 model
@@ -165,7 +165,7 @@
     ((instructions how to generate an image using DALL-E 3))
     ```
 
-- icon: @heroicons/photo
+- icon: '@heroicons/photo'
   name: Generate Image Using DALL-E 2
   alias: '@templates/instructions/image/dalle'
   description: Generate an image using the DALL-E 2 model
@@ -178,7 +178,7 @@
     ((instructions how to generate an image using DALL-E))
     ```
 
-- icon: @heroicons/photo
+- icon: '@heroicons/photo'
   name: Generate A Logo
   alias: '@templates/instructions/image/logo'
   description: Generate a logo using the DALL-E 3 model
@@ -199,7 +199,7 @@
 # ---
 # ---
 
-- icon: @heroicons/eye
+- icon: '@heroicons/eye'
   name: Describe Image
   alias: '@templates/instructions/view/describe'
   description: Describe the content of an image
@@ -217,7 +217,7 @@
 # ---
 # ---
 
-- icon: @clerabit/zapier.com
+- icon: '@clerabit/zapier.com'
   name: Trigger Zapier Webhook
   alias: '@templates/instructions/zapier/webhook'
   description: Trigger a Zapier webhook with data
@@ -235,7 +235,7 @@
     }
     ```
 
-- icon: @clerabit/make.com
+- icon: '@clerabit/make.com'
   name: Trigger Make Webhook
   alias: '@templates/instructions/make/webhook'
   description: Trigger a Make webhook with data
@@ -258,7 +258,7 @@
 # ---
 # ---
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Search Shopify Products
   alias: '@templates/instructions/shopify/search/products'
   description: Search for products in a Shopify store
@@ -294,7 +294,7 @@
         }
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Search Shopify Pages
   alias: '@templates/instructions/shopify/search/pages'
   description: Search for pages in a Shopify store
@@ -327,7 +327,7 @@
         }
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Search Shopify Articles
   alias: '@templates/instructions/shopify/search/articles'
   description: Search for articles in a Shopify store
@@ -360,7 +360,7 @@
         }
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Get Shopify Order Details
   alias: '@templates/instructions/shopify/order/details'
   description: Get details of a specific order in a Shopify store
@@ -378,7 +378,7 @@
       X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Get Shopify Customer Details
   alias: '@templates/instructions/shopify/customer/details'
   description: Get details of a specific customer in a Shopify store
@@ -394,7 +394,7 @@
       X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Search Shopify Customers by Email
   alias: '@templates/instructions/shopify/customer/search'
   description: Search for customers in a Shopify store by email
@@ -412,7 +412,7 @@
       X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
     ```
 
-- icon: @clerabit/shopify.com
+- icon: '@clerabit/shopify.com'
   name: Get Shopify Paid Orders
   alias: '@templates/instructions/shopify/order/paid'
   description: Get paid orders from a Shopify store
@@ -431,7 +431,7 @@
 # ---
 # ---
 
-- icon: @clerabit/notion.so
+- icon: '@clerabit/notion.so'
   name: Search Notion
   alias: '@templates/instructions/notion/search'
   description: Search all of Notion for specific keywords
@@ -449,7 +449,7 @@
     }
     ```
 
-- icon: @clerabit/notion.so
+- icon: '@clerabit/notion.so'
   name: Search Notion Database
   alias: '@templates/instructions/notion/database/search'
   description: Search a Notion database for specific keywords
@@ -481,7 +481,7 @@
 # ---
 # ---
 
-- icon: @clerabit/twilio.com
+- icon: '@clerabit/twilio.com'
   name: Send Twilio SMS
   alias: '@templates/instructions/twilio/sms'
   description: Send an SMS to a specified phone number using Twilio
@@ -505,7 +505,7 @@
 # ---
 # ---
 
-- icon: @clerabit/newsapi.org
+- icon: '@clerabit/newsapi.org'
   name: Get News Articles with NewsAPI
   alias: '@templates/instructions/newsapi/get'
   description: Fetch latest news articles based on keywords or categories
@@ -521,7 +521,7 @@
 # ---
 # ---
 
-- icon: @clerabit/alphavantage.co
+- icon: '@clerabit/alphavantage.co'
   name: Get Stock Market Data with Alpha Vantage
   alias: '@templates/instructions/alphavantage/stock'
   description: Retrieve current stock market data for a specific symbol
@@ -538,7 +538,7 @@
 # ---
 # ---
 
-- icon: @clerabit/coinapi.io
+- icon: '@clerabit/coinapi.io'
   name: Get Cryptocurrency Information with CoinAPI
   alias: '@templates/instructions/coinapi/info'
   description: Fetch cryptocurrency data such as price, market cap, and volume
@@ -554,7 +554,7 @@
 # ---
 # ---
 
-- icon: @clerabit/slack.com
+- icon: '@clerabit/slack.com'
   name: Send Slack Message
   alias: '@templates/instructions/slack/message'
   description: Send a message to a specific channel in Slack
@@ -573,7 +573,7 @@
     }
     ```
 
-- icon: @clerabit/slack.com
+- icon: '@clerabit/slack.com'
   name: Trigger Slack Webhook
   alias: '@templates/instructions/slack/webhook'
   description: Trigger a Slack webhook with data
@@ -594,7 +594,7 @@
 # ---
 # ---
 
-- icon: @clerabit/trello.com
+- icon: '@clerabit/trello.com'
   name: Create Trello Card
   alias: '@templates/instructions/trello/card/create'
   description: Create a new card in a specified list on Trello
@@ -618,7 +618,7 @@
 # ---
 # ---
 
-- icon: @clerabit/airtable.com
+- icon: '@clerabit/airtable.com'
   name: Get Wikipedia Page Summary
   alias: '@templates/instructions/wikipedia/summary'
   description: Fetch a summary of a Wikipedia page
@@ -634,7 +634,7 @@
 # ---
 # ---
 
-- icon: @clerabit/godaddy.com
+- icon: '@clerabit/godaddy.com'
   name: Check Domain Availability with GoDaddy
   alias: '@templates/instructions/godaddy/domain/check'
   description: Check the availability of a domain name using GoDaddy
@@ -651,7 +651,7 @@
 # ---
 # ---
 
-- icon: @clerabit/easypost.com
+- icon: '@clerabit/easypost.com'
   name: Check Package Tracking Status with EasyPost
   alias: '@templates/instructions/easypost/tracking'
   description: Track a package with carrier details using EasyPost
@@ -669,7 +669,7 @@
 # ---
 # ---
 
-- icon: @clerabit/vonage.com
+- icon: '@clerabit/vonage.com'
   name: Send Vonage SMS
   alias: '@templates/instructions/vonage/sms/send'
   description: Send an SMS to a specified phone number using Vonage
@@ -689,7 +689,7 @@
     }
     ```
 
-- icon: @clerabit/vonage.com
+- icon: '@clerabit/vonage.com'
   name: Check Vonage SMS Status
   alias: '@templates/instructions/vonage/sms/status'
   description: Check the status of a sent SMS using Vonage
@@ -712,7 +712,7 @@
 # ---
 # ---
 
-- icon: @clerabit/sendgrid.com
+- icon: '@clerabit/sendgrid.com'
   name: Send SendGrid Email
   alias: '@templates/instructions/sendgrid/email/send'
   description: Send an email to a specified recipient using SendGrid
@@ -752,7 +752,7 @@
 # ---
 # ---
 
-- icon: @clerabit/facebook.com
+- icon: '@clerabit/facebook.com'
   name: Post to Facebook Page
   alias: '@templates/instructions/facebook/page/post'
   description: Post a message to a Facebook page
@@ -771,7 +771,7 @@
     }
     ```
 
-- icon: @clerabit/facebook.com
+- icon: '@clerabit/facebook.com'
   name: Retrieve Facebook Page Insights
   alias: '@templates/instructions/facebook/page/insights'
   description: Retrieve insights for a Facebook page
@@ -789,7 +789,7 @@
 # ---
 # ---
 
-- icon: @clerabit/openweathermap.org
+- icon: '@clerabit/openweathermap.org'
   name: Retrieve Current Weather from OpenWeatherMap
   alias: '@templates/instructions/openweathermap/weather/current'
   description: Retrieve the current weather for a specific location using OpenWeatherMap
@@ -801,7 +801,7 @@
     GET https://api.openweathermap.org/data/2.5/weather?q=$[location|City name]&appid=${SECRET_OPENWEATHERMAP_API_KEY}
     ```
 
-- icon: @clerabit/openweathermap.org
+- icon: '@clerabit/openweathermap.org'
   name: Retrieve Weather Forecast from OpenWeatherMap
   alias: '@templates/instructions/openweathermap/weather/forecast'
   description: Retrieve the weather forecast for a specific location using OpenWeatherMap
@@ -818,7 +818,7 @@
 # ---
 # ---
 
-- icon: @clerabit/weatherstack.com
+- icon: '@clerabit/weatherstack.com'
   name: Retrieve Current Weather from Weatherstack
   alias: '@templates/instructions/weatherstack/weather/current'
   description: Retrieve the current weather for a specific location using Weatherstack
@@ -830,7 +830,7 @@
     GET http://api.weatherstack.com/current?access_key=${SECRET_WEATHERSTACK_API_KEY}&query=$[location|City name]
     ```
 
-- icon: @clerabit/weatherstack.com
+- icon: '@clerabit/weatherstack.com'
   name: Retrieve Historical Weather Data from Weatherstack
   alias: '@templates/instructions/weatherstack/weather/historical'
   description: Retrieve historical weather data for a specific location using Weatherstack
@@ -847,7 +847,7 @@
 # ---
 # ---
 
-- icon: @clerabit/mapbox.com
+- icon: '@clerabit/mapbox.com'
   name: Forward Geocode with Mapbox
   alias: '@templates/instructions/mapbox/forward-geocode'
   description: Convert an address to coordinates using Mapbox API
@@ -860,7 +860,7 @@
     GET https://api.mapbox.com/geocoding/v5/mapbox.places/$[address|Address].json?access_token=${SECRET_MAPBOX_ACCESS_TOKEN}
     ```
 
-- icon: @clerabit/mapbox.com
+- icon: '@clerabit/mapbox.com'
   name: Reverse Geocode with Mapbox
   alias: '@templates/instructions/mapbox/reverse-geocode'
   description: Convert coordinates to an address using Mapbox API
@@ -877,7 +877,7 @@
 # ---
 # ---
 
-- icon: @clerabit/mixpanel.com
+- icon: '@clerabit/mixpanel.com'
   name: Track Mixpanel Event
   alias: '@templates/instructions/mixpanel/event/track'
   description: Track an event in Mixpanel
@@ -902,7 +902,7 @@
     }
     ```
 
-- icon: @clerabit/mixpanel.com
+- icon: '@clerabit/mixpanel.com'
   name: Retrieve Mixpanel User Profiles
   alias: '@templates/instructions/mixpanel/user/profiles'
   description: Retrieve user profiles from Mixpanel
@@ -920,7 +920,7 @@
 # ---
 # ---
 
-- icon: @clerabit/atlassian.com
+- icon: '@clerabit/atlassian.com'
   name: Create Jira Issue
   alias: '@templates/instructions/jira/issue/create'
   description: Create a new issue in Jira
@@ -962,7 +962,7 @@
     }
     ```
 
-- icon: @clerabit/atlassian.com
+- icon: '@clerabit/atlassian.com'
   name: Retrieve Jira Issue Details
   alias: '@templates/instructions/jira/issue/details'
   description: Retrieve details of a specific issue in Jira
@@ -980,7 +980,7 @@
 # ---
 # ---
 
-- icon: @clerabit/zendesk.com
+- icon: '@clerabit/zendesk.com'
   name: List Zendesk Tickets
   alias: '@templates/instructions/zendesk/ticket/list'
   description: List all support tickets in Zendesk
@@ -994,7 +994,7 @@
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     ```
 
-- icon: @clerabit/zendesk.com
+- icon: '@clerabit/zendesk.com'
   name: Create Zendesk Ticket
   alias: '@templates/instructions/zendesk/ticket/create'
   description: Create a new support ticket in Zendesk
@@ -1019,7 +1019,7 @@
     }
     ```
 
-- icon: @clerabit/zendesk.com
+- icon: '@clerabit/zendesk.com'
   name: Update Zendesk Ticket
   alias: '@templates/instructions/zendesk/ticket/update'
   description: Update a specific support ticket in Zendesk
@@ -1044,7 +1044,7 @@
     }
     ```
 
-- icon: @clerabit/zendesk.com
+- icon: '@clerabit/zendesk.com'
   name: Retrieve Zendesk Ticket Status
   alias: '@templates/instructions/zendesk/ticket/status'
   description: Retrieve the status of a specific ticket in Zendesk
@@ -1062,7 +1062,7 @@
 # ---
 # ---
 
-- icon: @clerabit/freshdesk.com
+- icon: '@clerabit/freshdesk.com'
   name: List Freshdesk Tickets
   alias: '@templates/instructions/freshdesk/ticket/list'
   description: List all support tickets in Freshdesk
@@ -1076,7 +1076,7 @@
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     ```
 
-- icon: @clerabit/freshdesk.com
+- icon: '@clerabit/freshdesk.com'
   name: Create Freshdesk Ticket
   alias: '@templates/instructions/freshdesk/ticket/create'
   description: Create a new support ticket in Freshdesk
@@ -1099,7 +1099,7 @@
     }
     ```
 
-- icon: @clerabit/freshdesk.com
+- icon: '@clerabit/freshdesk.com'
   name: Update Freshdesk Ticket
   alias: '@templates/instructions/freshdesk/ticket/update'
   description: Update a specific support ticket in Freshdesk
@@ -1120,7 +1120,7 @@
     }
     ```
 
-- icon: @clerabit/freshdesk.com
+- icon: '@clerabit/freshdesk.com'
   name: Retrieve Freshdesk Customer Details
   alias: '@templates/instructions/freshdesk/customer/details'
   description: Retrieve details of a specific customer in Freshdesk
@@ -1138,7 +1138,7 @@
 # ---
 # ---
 
-- icon: @clerabit/woocommerce.com
+- icon: '@clerabit/woocommerce.com'
   name: List WooCommerce Orders
   alias: '@templates/instructions/woocommerce/order/list'
   description: List all orders in WooCommerce
@@ -1152,7 +1152,7 @@
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
-- icon: @clerabit/woocommerce.com
+- icon: '@clerabit/woocommerce.com'
   name: Create WooCommerce Order
   alias: '@templates/instructions/woocommerce/order/create'
   description: Create a new order in WooCommerce
@@ -1190,7 +1190,7 @@
     }
     ```
 
-- icon: @clerabit/woocommerce.com
+- icon: '@clerabit/woocommerce.com'
   name: Update WooCommerce Order
   alias: '@templates/instructions/woocommerce/order/update'
   description: Update a specific order in WooCommerce
@@ -1210,7 +1210,7 @@
     }
     ```
 
-- icon: @clerabit/woocommerce.com
+- icon: '@clerabit/woocommerce.com'
   name: Retrieve WooCommerce Product Details
   alias: '@templates/instructions/woocommerce/product/details'
   description: Retrieve details of a specific product in WooCommerce
@@ -1228,7 +1228,7 @@
 # ---
 # ---
 
-- icon: @clerabit/bigcommerce.com
+- icon: '@clerabit/bigcommerce.com'
   name: Create BigCommerce Customer
   alias: '@templates/instructions/bigcommerce/customer/create'
   description: Create a new customer in BigCommerce
@@ -1259,7 +1259,7 @@
     }
     ```
 
-- icon: @clerabit/bigcommerce.com
+- icon: '@clerabit/bigcommerce.com'
   name: Retrieve BigCommerce Order Details
   alias: '@templates/instructions/bigcommerce/order/details'
   description: Retrieve details of a specific order in BigCommerce
@@ -1277,7 +1277,7 @@
 # ---
 # ---
 
-- icon: @clerabit/cal.com
+- icon: '@clerabit/cal.com'
   name: Create Cal.com Event
   alias: '@templates/instructions/cal/event/create'
   description: Create a new event in Cal.com
@@ -1300,7 +1300,7 @@
     }
     ```
 
-- icon: @clerabit/cal.com
+- icon: '@clerabit/cal.com'
   name: Retrieve Cal.com Event Details
   alias: '@templates/instructions/cal/event/details'
   description: Retrieve details of a specific event in Cal.com
@@ -1314,7 +1314,7 @@
     Authorization: Bearer ${SECRET_CAL_API_KEY}
     ```
 
-- icon: @clerabit/cal.com
+- icon: '@clerabit/cal.com'
   name: Retrieve All Cal.com Events
   alias: '@templates/instructions/cal/events/retrieve/all'
   description: Retrieve all events from Cal.com
@@ -1328,7 +1328,7 @@
     Authorization: Bearer ${SECRET_CAL_API_KEY}
     ```
 
-- icon: @clerabit/cal.com
+- icon: '@clerabit/cal.com'
   name: Retrieve Cal.com Events for Date Range
   alias: '@templates/instructions/cal/events/retrieve/daterange'
   description: Retrieve events from Cal.com for a specific date range
@@ -1346,7 +1346,7 @@
 # ---
 # ---
 
-- icon: @clerabit/calendly.com
+- icon: '@clerabit/calendly.com'
   name: Create Calendly Event
   alias: '@templates/instructions/calendly/event/create'
   description: Create a new event in Calendly
@@ -1370,7 +1370,7 @@
     }
     ```
 
-- icon: @clerabit/calendly.com
+- icon: '@clerabit/calendly.com'
   name: Retrieve Calendly Event Details
   alias: '@templates/instructions/calendly/event/details'
   description: Retrieve details of a specific event in Calendly
@@ -1384,7 +1384,7 @@
     Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
     ```
 
-- icon: @clerabit/calendly.com
+- icon: '@clerabit/calendly.com'
   name: Retrieve All Calendly Events
   alias: '@templates/instructions/calendly/events/retrieve/all'
   description: Retrieve all events from Calendly
@@ -1398,7 +1398,7 @@
     Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
     ```
 
-- icon: @clerabit/calendly.com
+- icon: '@clerabit/calendly.com'
   name: Retrieve Calendly Events for Date Range
   alias: '@templates/instructions/calendly/events/retrieve/daterange'
   description: Retrieve events from Calendly for a specific date range
@@ -1416,7 +1416,7 @@
 # ---
 # ---
 
-- icon: @clerabit/stripe.com
+- icon: '@clerabit/stripe.com'
   name: Create Stripe Payment Intent
   alias: '@templates/instructions/stripe/payment-intent/create'
   description: Create a new payment intent in Stripe
@@ -1437,7 +1437,7 @@
     }
     ```
 
-- icon: @clerabit/stripe.com
+- icon: '@clerabit/stripe.com'
   name: Retrieve Stripe Payment Details
   alias: '@templates/instructions/stripe/payment/details'
   description: Retrieve details of a specific payment in Stripe
@@ -1455,7 +1455,7 @@
 # ---
 # ---
 
-- icon: @clerabit/paypal.com
+- icon: '@clerabit/paypal.com'
   name: Create PayPal Payment
   alias: '@templates/instructions/paypal/payment/create'
   description: Create a new payment in PayPal
@@ -1490,7 +1490,7 @@
     }
     ```
 
-- icon: @clerabit/paypal.com
+- icon: '@clerabit/paypal.com'
   name: Retrieve PayPal Payment Status
   alias: '@templates/instructions/paypal/payment/status'
   description: Retrieve the status of a specific payment in PayPal
