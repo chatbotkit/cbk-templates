@@ -1191,7 +1191,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    GET https://((your-domain.com))/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
@@ -1205,7 +1205,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    POST https://((your-domain.com))/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -1243,7 +1243,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-domain.com/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
+    PUT https://((your-domain.com))/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -1263,7 +1263,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.com/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
+    GET https://((your-domain.com))/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
@@ -1281,7 +1281,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://api.bigcommerce.com/stores/$[store_hash|Store hash]/v3/customers HTTP/1.1
+    POST https://api.bigcommerce.com/stores/((store hash))/v3/customers HTTP/1.1
     Authorization: Bearer ${SECRET_BIGCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -1312,7 +1312,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://api.bigcommerce.com/stores/$[store_hash|Store hash]/v2/orders/$[order_id|Order ID] HTTP/1.1
+    GET https://api.bigcommerce.com/stores/((store hash))/v2/orders/$[order_id|Order ID] HTTP/1.1
     Authorization: Bearer ${SECRET_BIGCOMMERCE_API_KEY}
     ```
 
