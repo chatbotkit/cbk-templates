@@ -1546,3 +1546,1570 @@
     GET https://api-m.sandbox.paypal.com/v1/payments/payment/$[payment_id|Payment ID] HTTP/1.1
     Authorization: Bearer ${SECRET_PAYPAL_API_KEY}
     ```
+
+# A file that contains chatbotkit instructions templates. Each instruction
+# template has an icon, name, alias, description, tags, and an instruction
+# block. The instruction block is a markdown code block that contains the
+# instruction action. The instruction action can contain placeholders defined
+# by ((name)) secrets defined by ${SECRET_NAME} and user inputs/parameters
+# defined by # $[name|description]. Each action can be of different types such
+# as fetch, search, email, text, image, etc.
+#
+# For more information how to create and use ChatBotKit Skillsets visit:
+# https://chatbotkit.com/docs/skillsets
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/circle-stack'
+  name: Search Dataset
+  alias: '@templates/instructions/dataset/search'
+  description: Search a dataset for specific keywords or filters
+  tags:
+    - dataset
+    - search
+  instruction: |
+    ```search/datasetId=((datasetId))
+    $[query|search query]
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/globe-alt'
+  name: Fetch Web Page
+  alias: '@templates/instructions/webpage/fetch'
+  description: Fetch the content of a web page using a URL and convert it to text
+  tags:
+    - webpage
+    - fetch
+  instruction: |
+    ```fetch/format=text
+    $[url|the url of the page to fetch]
+    ```
+
+- icon: '@heroicons/globe-alt'
+  name: Fetch Web API
+  alias: '@templates/instructions/webapi/get'
+  description: Fetch data from a web API using a URL and optional parameters
+  tags:
+    - webapi
+    - fetch
+  instruction: |
+    ```fetch
+    GET https://api.example.com/data?param1=value1&param2=value2 HTTP/1.1
+    Authorization: Bearer ${SECRET_API_KEY}
+    ```
+
+- icon: '@heroicons/globe-alt'
+  name: Post Data to Web API
+  alias: '@templates/instructions/webapi/post'
+  description: Post data to a web API using a URL and JSON payload
+  tags:
+    - webapi
+    - post
+  instruction: |
+    ```fetch
+    POST https://api.example.com/data HTTP/1.1
+    Authorization: Bearer ${SECRET_API_KEY}
+    Content-Type: application/json
+
+    {
+      "key": "value"
+    }
+    ```
+
+- icon: '@heroicons/globe-alt'
+  name: Post Data to Web API with Parameters
+  alias: '@templates/instructions/webapi/post-params'
+  description: Post data to a web API using a URL and form parameters
+  tags:
+    - webapi
+    - post
+  instruction: |
+    ```fetch
+    POST https://api.example.com/data HTTP/1.1
+    Authorization: Bearer ${SECRET_API_KEY}
+    Content-Type: application/json
+
+    {
+      "param1": "$[param1|The description of param1]",
+      "param2": "$[param2|The description of param2]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/at-symbol'
+  name: Send Email
+  alias: '@templates/instructions/email/send'
+  description: Send an email to a specified recipient using an SMTP server
+  tags:
+    - email
+    - smtp
+  instruction: |
+    ```email/to=$[to|recipient's email address]/replayTo=contact@example.com/subject=Example Subject
+    ((instructions how to write the email))
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/document-text'
+  name: Generate Text
+  alias: '@templates/instructions/text/generate'
+  description: Generate text
+  tags:
+    - text
+    - generation
+  instruction: |
+    ```text
+    ((instructions how to generate text))
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/photo'
+  name: Generate Image
+  alias: '@templates/instructions/image/generate'
+  description: Generate an image
+  tags:
+    - image
+    - generation
+  instruction: |
+    ```image
+    ((instructions how to generate an image))
+    ```
+
+- icon: '@heroicons/photo'
+  name: Generate Image Using StableDiffusion
+  alias: '@templates/instructions/image/stablediffusion'
+  description: Generate an image using the StableDiffusion model
+  tags:
+    - image
+    - generation
+    - stablediffusion
+  instruction: |
+    ```image/model=stablediffusion
+    ((instructions how to generate an image using StableDiffusion))
+    ```
+
+- icon: '@heroicons/photo'
+  name: Generate Image Using DALL-E 3
+  alias: '@templates/instructions/image/dalle3'
+  description: Generate an image using the DALL-E 3 model
+  tags:
+    - image
+    - generation
+    - dalle
+  instruction: |
+    ```image/model=dalle3
+    ((instructions how to generate an image using DALL-E 3))
+    ```
+
+- icon: '@heroicons/photo'
+  name: Generate Image Using DALL-E 2
+  alias: '@templates/instructions/image/dalle'
+  description: Generate an image using the DALL-E 2 model
+  tags:
+    - image
+    - generation
+    - dalle
+  instruction: |
+    ```image/model=dalle2
+    ((instructions how to generate an image using DALL-E))
+    ```
+
+- icon: '@heroicons/photo'
+  name: Generate A Logo
+  alias: '@templates/instructions/image/logo'
+  description: Generate a logo using the DALL-E 3 model
+  instruction: |
+    When requested to make a logo, use the following action by replacing the placeholder with the original input:
+
+    ```image/model=dalle3
+    A sleek logo of [placeholder] featuring a modern abstract design, monochrome style, contemporary aesthetic, transparent background
+    ```
+
+    For example if the input is "a fox" the action is:
+
+    ```image/model=dalle3
+    A sleek logo of a fox featuring a modern abstract design, monochrome style, contemporary aesthetic, transparent background
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@heroicons/eye'
+  name: Describe Image
+  alias: '@templates/instructions/view/describe'
+  description: Describe the content of an image
+  tags:
+    - beta
+    - image
+    - description
+  instruction: |
+    ```view
+    $[image_url|The URL of the image]
+    ((instructions how to describe an image))
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/zapier.com'
+  name: Trigger Zapier Webhook
+  alias: '@templates/instructions/zapier/webhook'
+  description: Trigger a Zapier webhook with data
+  tags:
+    - zapier
+    - webhook
+  instruction: |
+    ```fetch
+    POST ((zappier.com webhook url)) HTTP/1.1
+    Content-Type: application/json
+
+    {
+      "param1": "$[param1|param description]",
+      "param2": "$[param2|param description]"
+    }
+    ```
+
+- icon: '@clearbit/make.com'
+  name: Trigger Make Webhook
+  alias: '@templates/instructions/make/webhook'
+  description: Trigger a Make webhook with data
+  tags:
+    - make
+    - integromat
+    - webhook
+  instruction: |
+    ```fetch
+    POST ((make.com webhook url)) HTTP/1.1
+    Content-Type: application/json
+
+    {
+      "param1": "$[param1|param description]",
+      "param2": "$[param2|param description]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/shopify.com'
+  name: Search Shopify Products
+  alias: '@templates/instructions/shopify/search/products'
+  description: Search for products in a Shopify store
+  tags:
+    - shopify
+    - products
+    - search
+  instruction: |
+    ```fetch
+    method: POST
+    url: https://((domain)).myshopify.com/api/2024-04/graphql.json
+    headers:
+      X-Shopify-Storefront-Access-Token: ${SECRET_SHOPIFY_STOREFRONT_ACCESS_TOKEN}
+      Content-Type: application/json
+    body:
+      query: |
+        query {
+          search(first: 10, sortKey: RELEVANCE, types: PRODUCT, productFilters: { available: true }, query: "$[search_query|search query]") {
+            edges {
+              node {
+                ... on Product {
+                  id
+                  title
+                  description
+                  onlineStoreUrl
+                  featuredImage {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Search Shopify Pages
+  alias: '@templates/instructions/shopify/search/pages'
+  description: Search for pages in a Shopify store
+  tags:
+    - shopify
+    - pages
+    - search
+  instruction: |
+    ```fetch
+    method: POST
+    url: https://((domain)).myshopify.com/api/2024-04/graphql.json
+    headers:
+      X-Shopify-Storefront-Access-Token: ${SECRET_SHOPIFY_STOREFRONT_ACCESS_TOKEN}
+      Content-Type: application/json
+    body:
+      query: |
+        query {
+          search(first: 10, sortKey: RELEVANCE, types: PAGE, query: "$[search_query|search query]") {
+            edges {
+              node {
+                ... on Page {
+                  id
+                  title
+                  bodySummary
+                  onlineStoreUrl
+                }
+              }
+            }
+          }
+        }
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Search Shopify Articles
+  alias: '@templates/instructions/shopify/search/articles'
+  description: Search for articles in a Shopify store
+  tags:
+    - shopify
+    - articles
+    - search
+  instruction: |
+    ```fetch
+    method: POST
+    url: https://((domain)).myshopify.com/api/2024-04/graphql.json
+    headers:
+      X-Shopify-Storefront-Access-Token: ${SECRET_SHOPIFY_STOREFRONT_ACCESS_TOKEN}
+      Content-Type: application/json
+    body:
+      query: |
+        query {
+          search(first: 10, sortKey: RELEVANCE, types: ARTICLE, query: "$[search_query|search query]") {
+            edges {
+              node {
+                ... on Article {
+                  id
+                  title
+                  excerpt
+                  onlineStoreUrl
+                }
+              }
+            }
+          }
+        }
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Get Shopify Order Details
+  alias: '@templates/instructions/shopify/order/details'
+  description: Get details of a specific order in a Shopify store
+  tags:
+    - shopify
+    - order
+    - details
+  instruction: |
+    ```fetch
+    method: GET
+    url: https://((domain)).myshopify.com/admin/api/2024-04/orders/$[order_id|order ID].json
+    query:
+      fields: name,created_at,fulfillment_status
+    headers:
+      X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Get Shopify Customer Details
+  alias: '@templates/instructions/shopify/customer/details'
+  description: Get details of a specific customer in a Shopify store
+  tags:
+    - shopify
+    - customer
+    - details
+  instruction: |
+    ```fetch
+    method: GET
+    url: https://((domain)).myshopify.com/admin/api/2024-04/customers/$[customer_id|customer ID].json
+    headers:
+      X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Search Shopify Customers by Email
+  alias: '@templates/instructions/shopify/customer/search'
+  description: Search for customers in a Shopify store by email
+  tags:
+    - shopify
+    - product
+    - details
+  instruction: |
+    ```fetch
+    method: GET
+    url: https://((domain)).myshopify.com/admin/api/2024-04/customers/search.json
+    query:
+      query: email:$[email|customer email]
+    headers:
+      X-Shopify-Access-Token: ${SECRET_SHOPIFY_ADMIN_ACCESS_TOKEN}
+    ```
+
+- icon: '@clearbit/shopify.com'
+  name: Get Shopify Paid Orders
+  alias: '@templates/instructions/shopify/order/paid'
+  description: Get paid orders from a Shopify store
+  tags:
+    - shopify
+    - order
+    - paid
+  instruction: |
+    ```fetch
+    method: GET
+    url: https://((domain)).myshopify.com/admin/api/2024-04/orders.json
+    query:
+      financial_status: paid,partially_refunded
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/notion.so'
+  name: Search Notion
+  alias: '@templates/instructions/notion/search'
+  description: Search all of Notion for specific keywords
+  tags:
+    - notion
+    - search
+  instruction: |
+    ```fetch
+    POST https://api.notion.com/v1/search HTTP/1.1
+    Authorization: Bearer ${SECRET_NOTION_API_KEY}
+    Content-Type: application/json
+
+    {
+      "query": "$[search|A search phrase to use]"
+    }
+    ```
+
+- icon: '@clearbit/notion.so'
+  name: Search Notion Database
+  alias: '@templates/instructions/notion/database/search'
+  description: Search a Notion database for specific keywords
+  tags:
+    - notion
+    - search
+    - database
+  instruction: |
+    ```fetch
+    POST https://api.notion.com/v1/databases/((databaseId))/query HTTP/1.1
+    Authorization: Bearer ${SECRET_NOTION_API_KEY}
+    Content-Type: application/json
+
+    {
+      "filter": {
+        "or": [
+          {
+            "property": "((propertyName))",
+            "text": {
+              "contains": "$[search|A search phrase to use]"
+            }
+          }
+        ]
+      }
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/twilio.com'
+  name: Send Twilio SMS
+  alias: '@templates/instructions/twilio/sms'
+  description: Send an SMS to a specified phone number using Twilio
+  tags:
+    - twilio
+    - sms
+  instruction: |
+    ```fetch
+    POST https://api.twilio.com/2010-04-01/Accounts/${SECRET_TWILIO_ACCOUNT_SID}/Messages.json HTTP/1.1
+    Authorization: Basic ${SECRET_TWILIO_AUTH_TOKEN}
+    Content-Type: application/x-www-form-urlencoded
+
+    {
+      "From": "((your twilio phone number))",
+      "To": "$[to|Recipient's phone number]",
+      "Body": "$[message|Message content]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/newsapi.org'
+  name: Get News Articles with NewsAPI
+  alias: '@templates/instructions/newsapi/get'
+  description: Fetch latest news articles based on keywords or categories
+  tags:
+    - news
+    - newsapi
+  instruction: |
+    ```fetch
+    GET https://newsapi.org/v2/everything?q=$[keywords|keywords to search for]&apiKey=${SECRET_NEWSAPI_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/alphavantage.co'
+  name: Get Stock Market Data with Alpha Vantage
+  alias: '@templates/instructions/alphavantage/stock'
+  description: Retrieve current stock market data for a specific symbol
+  tags:
+    - finance
+    - stock
+    - alphavantage
+  instruction: |
+    ```fetch
+    GET https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=$[symbol|stock symbol]&apikey=${SECRET_ALPHAVANTAGE_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/coinapi.io'
+  name: Get Cryptocurrency Information with CoinAPI
+  alias: '@templates/instructions/coinapi/info'
+  description: Fetch cryptocurrency data such as price, market cap, and volume
+  tags:
+    - cryptocurrency
+    - coinapi
+  instruction: |
+    ```fetch
+    GET https://rest.coinapi.io/v1/assets/$[crypto|cryptocurrency symbol]?apikey=${SECRET_COINAPI_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/slack.com'
+  name: Send Slack Message
+  alias: '@templates/instructions/slack/message'
+  description: Send a message to a specific channel in Slack
+  tags:
+    - slack
+    - communication
+  instruction: |
+    ```fetch
+    POST https://slack.com/api/chat.postMessage HTTP/1.1
+    Authorization: Bearer ${SECRET_SLACK_TOKEN}
+    Content-Type: application/json
+
+    {
+      "channel": "${SECRET_SLACK_CHANNEL_ID}",
+      "text": "$[message|Message content]"
+    }
+    ```
+
+- icon: '@clearbit/slack.com'
+  name: Trigger Slack Webhook
+  alias: '@templates/instructions/slack/webhook'
+  description: Trigger a Slack webhook with data
+  tags:
+    - slack
+    - webhook
+  instruction: |
+    ```fetch
+    POST ((slack.com webhook url)) HTTP/1.1
+    Content-Type: application/json
+
+    {
+      "text": "$[message|Message content]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/discord.com'
+  name: Send Discord Message
+  alias: '@templates/instructions/discord/message/send'
+  description: Send a message to a specific channel in Discord
+  tags:
+    - discord
+    - message
+    - send
+  instruction: |
+    ```fetch
+    POST https://discord.com/api/v9/channels/$[channel_id|Channel ID]/messages HTTP/1.1
+    Authorization: Bot ${SECRET_DISCORD_BOT_TOKEN}
+    Content-Type: application/json
+
+    {
+      "content": "$[message|Message content]"
+    }
+    ```
+
+- icon: '@clearbit/discord.com'
+  name: Trigger Discord Webhook
+  alias: '@templates/instructions/discord/webhook/trigger'
+  description: Trigger a Discord webhook with data
+  tags:
+    - discord
+    - webhook
+    - trigger
+  instruction: |
+    ```fetch
+    POST ((discord.com webhook url)) HTTP/1.1
+    Content-Type: application/json
+
+    {
+      "content": "$[message|Message content]",
+      "username": "$[username|Webhook Username]",
+      "avatar_url": "$[avatar_url|Webhook Avatar URL]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/trello.com'
+  name: Create Trello Card
+  alias: '@templates/instructions/trello/card/create'
+  description: Create a new card in a specified list on Trello
+  tags:
+    - trello
+    - productivity
+  instruction: |
+    ```fetch
+    POST https://api.trello.com/1/cards HTTP/1.1
+    Authorization: Bearer ${SECRET_TRELLO_KEY}
+    Content-Type: application/x-www-form-urlencoded
+
+    {
+      "name": "$[name|card name]",
+      "desc": "$[desc|card description]",
+      "idList": "((your list id))"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/airtable.com'
+  name: Get Wikipedia Page Summary
+  alias: '@templates/instructions/wikipedia/summary'
+  description: Fetch a summary of a Wikipedia page
+  tags:
+    - wikipedia
+    - information
+  instruction: |
+    ```fetch
+    GET https://en.wikipedia.org/api/rest_v1/page/summary/$[title|wikipedia page title]
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/godaddy.com'
+  name: Check Domain Availability with GoDaddy
+  alias: '@templates/instructions/godaddy/domain/check'
+  description: Check the availability of a domain name using GoDaddy
+  tags:
+    - godaddy
+    - domain
+  instruction: |
+    ```fetch
+    GET https://api.godaddy.com/v1/domains/available?domain=$[domain_name|domain name]
+    Authorization: sso-key ${SECRET_GODADDY_API_KEY_AND_SECRET}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/easypost.com'
+  name: Check Package Tracking Status with EasyPost
+  alias: '@templates/instructions/easypost/tracking'
+  description: Track a package with carrier details using EasyPost
+  tags:
+    - logistics
+    - tracking
+    - easypost
+  instruction: |
+    ```fetch
+    GET https://api.easypost.com/v2/tracks/$[carrier|carrier name]/$[tracking_number|tracking number] HTTP/1.1
+    Authorization: Bearer ${SECRET_EASYPOST_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/vonage.com'
+  name: Send Vonage SMS
+  alias: '@templates/instructions/vonage/sms/send'
+  description: Send an SMS to a specified phone number using Vonage
+  tags:
+    - vonage
+    - sms
+  instruction: |
+    ```fetch
+    POST https://rest.nexmo.com/sms/json HTTP/1.1
+    Authorization: Bearer ${SECRET_VONAGE_API_KEY}
+    Content-Type: application/x-www-form-urlencoded
+
+    {
+      "from": "$[from|Sender ID or phone number]",
+      "to": "$[to|Recipient's phone number]",
+      "text": "$[text|Message content]"
+    }
+    ```
+
+- icon: '@clearbit/vonage.com'
+  name: Check Vonage SMS Status
+  alias: '@templates/instructions/vonage/sms/status'
+  description: Check the status of a sent SMS using Vonage
+  tags:
+    - vonage
+    - sms
+    - status
+  instruction: |
+    ```fetch
+    GET https://rest.nexmo.com/search/message HTTP/1.1
+    Authorization: Bearer ${SECRET_VONAGE_API_KEY}
+    Content-Type: application/x-www-form-urlencoded
+
+    {
+      "id": "$[message_id|Message ID]"
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/sendgrid.com'
+  name: Send SendGrid Email
+  alias: '@templates/instructions/sendgrid/email/send'
+  description: Send an email to a specified recipient using SendGrid
+  tags:
+    - sendgrid
+    - email
+  instruction: |
+    ```fetch
+    POST https://api.sendgrid.com/v3/mail/send HTTP/1.1
+    Authorization: Bearer ${SECRET_SENDGRID_API_KEY}
+    Content-Type: application/json
+
+    {
+      "personalizations": [
+        {
+          "to": [
+            {
+              "email": "$[to|Recipient's email address]"
+            }
+          ],
+          "subject": "$[subject|Email subject]"
+        }
+      ],
+      "from": {
+        "email": "$[from|Sender's email address]"
+      },
+      "content": [
+        {
+          "type": "text/plain",
+          "value": "$[content|Email content]"
+        }
+      ]
+    }
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/facebook.com'
+  name: Post to Facebook Page
+  alias: '@templates/instructions/facebook/page/post'
+  description: Post a message to a Facebook page
+  tags:
+    - facebook
+    - page
+    - post
+  instruction: |
+    ```fetch
+    POST https://graph.facebook.com/v13.0/$[page_id|Facebook page ID]/feed HTTP/1.1
+    Authorization: Bearer ${SECRET_FACEBOOK_ACCESS_TOKEN}
+    Content-Type: application/json
+
+    {
+      "message": "$[message|Post content]"
+    }
+    ```
+
+- icon: '@clearbit/facebook.com'
+  name: Retrieve Facebook Page Insights
+  alias: '@templates/instructions/facebook/page/insights'
+  description: Retrieve insights for a Facebook page
+  tags:
+    - facebook
+    - page
+    - insights
+  instruction: |
+    ```fetch
+    GET https://graph.facebook.com/v13.0/$[page_id|Facebook page ID]/insights HTTP/1.1
+    Authorization: Bearer ${SECRET_FACEBOOK_ACCESS_TOKEN}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/openweathermap.org'
+  name: Retrieve Current Weather from OpenWeatherMap
+  alias: '@templates/instructions/openweathermap/weather/current'
+  description: Retrieve the current weather for a specific location using OpenWeatherMap
+  tags:
+    - openweathermap
+    - weather
+  instruction: |
+    ```fetch
+    GET https://api.openweathermap.org/data/2.5/weather?q=$[location|City name]&appid=${SECRET_OPENWEATHERMAP_API_KEY}
+    ```
+
+- icon: '@clearbit/openweathermap.org'
+  name: Retrieve Weather Forecast from OpenWeatherMap
+  alias: '@templates/instructions/openweathermap/weather/forecast'
+  description: Retrieve the weather forecast for a specific location using OpenWeatherMap
+  tags:
+    - openweathermap
+    - weather
+    - forecast
+  instruction: |
+    ```fetch
+    GET https://api.openweathermap.org/data/2.5/forecast?q=$[location|City name]&appid=${SECRET_OPENWEATHERMAP_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/weatherstack.com'
+  name: Retrieve Current Weather from Weatherstack
+  alias: '@templates/instructions/weatherstack/weather/current'
+  description: Retrieve the current weather for a specific location using Weatherstack
+  tags:
+    - weatherstack
+    - weather
+  instruction: |
+    ```fetch
+    GET http://api.weatherstack.com/current?access_key=${SECRET_WEATHERSTACK_API_KEY}&query=$[location|City name]
+    ```
+
+- icon: '@clearbit/weatherstack.com'
+  name: Retrieve Historical Weather Data from Weatherstack
+  alias: '@templates/instructions/weatherstack/weather/historical'
+  description: Retrieve historical weather data for a specific location using Weatherstack
+  tags:
+    - weatherstack
+    - weather
+    - historical
+  instruction: |
+    ```fetch
+    GET http://api.weatherstack.com/historical?access_key=${SECRET_WEATHERSTACK_API_KEY}&query=$[location|City name]&historical_date=$[date|Historical date]
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/mapbox.com'
+  name: Forward Geocode with Mapbox
+  alias: '@templates/instructions/mapbox/forward-geocode'
+  description: Convert an address to coordinates using Mapbox API
+  tags:
+    - mapbox
+    - geocode
+    - forward
+  instruction: |
+    ```fetch
+    GET https://api.mapbox.com/geocoding/v5/mapbox.places/$[address|Address].json?access_token=${SECRET_MAPBOX_ACCESS_TOKEN}
+    ```
+
+- icon: '@clearbit/mapbox.com'
+  name: Reverse Geocode with Mapbox
+  alias: '@templates/instructions/mapbox/reverse-geocode'
+  description: Convert coordinates to an address using Mapbox API
+  tags:
+    - mapbox
+    - geocode
+    - reverse
+  instruction: |
+    ```fetch
+    GET https://api.mapbox.com/geocoding/v5/mapbox.places/$[longitude|Longitude],$[latitude|Latitude].json?access_token=${SECRET_MAPBOX_ACCESS_TOKEN}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/mixpanel.com'
+  name: Track Mixpanel Event
+  alias: '@templates/instructions/mixpanel/event/track'
+  description: Track an event in Mixpanel
+  tags:
+    - mixpanel
+    - event
+    - track
+  instruction: |
+    ```fetch
+    POST https://api.mixpanel.com/track HTTP/1.1
+    Authorization: Basic ${SECRET_MIXPANEL_API_KEY}
+    Content-Type: application/json
+
+    {
+      "event": "$[event_name|Event name]",
+      "properties": {
+        "distinct_id": "$[distinct_id|User ID]",
+        "token": "${SECRET_MIXPANEL_API_KEY}",
+        "property1": "$[property1|Property 1]",
+        "property2": "$[property2|Property 2]"
+      }
+    }
+    ```
+
+- icon: '@clearbit/mixpanel.com'
+  name: Retrieve Mixpanel User Profiles
+  alias: '@templates/instructions/mixpanel/user/profiles'
+  description: Retrieve user profiles from Mixpanel
+  tags:
+    - mixpanel
+    - user
+    - profiles
+  instruction: |
+    ```fetch
+    GET https://mixpanel.com/api/2.0/engage?distinct_id=$[distinct_id|User ID] HTTP/1.1
+    Authorization: Basic ${SECRET_MIXPANEL_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/atlassian.com'
+  name: Create Jira Issue
+  alias: '@templates/instructions/jira/issue/create'
+  description: Create a new issue in Jira
+  tags:
+    - jira
+    - issue
+    - create
+  instruction: |
+    ```fetch
+    POST https://your-domain.atlassian.net/rest/api/3/issue HTTP/1.1
+    Authorization: Basic ${SECRET_JIRA_API_KEY}
+    Content-Type: application/json
+
+    {
+      "fields": {
+        "project": {
+          "key": "$[project_key|Project key]"
+        },
+        "summary": "$[summary|Issue summary]",
+        "description": {
+          "type": "doc",
+          "version": 1,
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "text": "$[description|Issue description]",
+                  "type": "text"
+                }
+              ]
+            }
+          ]
+        },
+        "issuetype": {
+          "name": "$[issuetype|Issue type]"
+        }
+      }
+    }
+    ```
+
+- icon: '@clearbit/atlassian.com'
+  name: Retrieve Jira Issue Details
+  alias: '@templates/instructions/jira/issue/details'
+  description: Retrieve details of a specific issue in Jira
+  tags:
+    - jira
+    - issue
+    - details
+  instruction: |
+    ```fetch
+    GET https://your-domain.atlassian.net/rest/api/3/issue/$[issue_id|Issue ID] HTTP/1.1
+    Authorization: Basic ${SECRET_JIRA_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/zendesk.com'
+  name: List Zendesk Tickets
+  alias: '@templates/instructions/zendesk/ticket/list'
+  description: List all support tickets in Zendesk
+  tags:
+    - zendesk
+    - ticket
+    - list
+  instruction: |
+    ```fetch
+    GET https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
+    ```
+
+- icon: '@clearbit/zendesk.com'
+  name: Create Zendesk Ticket
+  alias: '@templates/instructions/zendesk/ticket/create'
+  description: Create a new support ticket in Zendesk
+  tags:
+    - zendesk
+    - ticket
+    - create
+  instruction: |
+    ```fetch
+    POST https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
+    Content-Type: application/json
+
+    {
+      "ticket": {
+        "subject": "$[subject|Ticket subject]",
+        "comment": {
+          "body": "$[body|Ticket body]"
+        },
+        "priority": "$[priority|Ticket priority]"
+      }
+    }
+    ```
+
+- icon: '@clearbit/zendesk.com'
+  name: Update Zendesk Ticket
+  alias: '@templates/instructions/zendesk/ticket/update'
+  description: Update a specific support ticket in Zendesk
+  tags:
+    - zendesk
+    - ticket
+    - update
+  instruction: |
+    ```fetch
+    PUT https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
+    Content-Type: application/json
+
+    {
+      "ticket": {
+        "status": "$[status|Ticket status]",
+        "priority": "$[priority|Ticket priority]",
+        "comment": {
+          "body": "$[comment|Update comment]"
+        }
+      }
+    }
+    ```
+
+- icon: '@clearbit/zendesk.com'
+  name: Retrieve Zendesk Ticket Status
+  alias: '@templates/instructions/zendesk/ticket/status'
+  description: Retrieve the status of a specific ticket in Zendesk
+  tags:
+    - zendesk
+    - ticket
+    - status
+  instruction: |
+    ```fetch
+    GET https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/freshdesk.com'
+  name: List Freshdesk Tickets
+  alias: '@templates/instructions/freshdesk/ticket/list'
+  description: List all support tickets in Freshdesk
+  tags:
+    - freshdesk
+    - ticket
+    - list
+  instruction: |
+    ```fetch
+    GET https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
+    ```
+
+- icon: '@clearbit/freshdesk.com'
+  name: Create Freshdesk Ticket
+  alias: '@templates/instructions/freshdesk/ticket/create'
+  description: Create a new support ticket in Freshdesk
+  tags:
+    - freshdesk
+    - ticket
+    - create
+  instruction: |
+    ```fetch
+    POST https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
+    Content-Type: application/json
+
+    {
+      "email": "$[email|Customer email]",
+      "subject": "$[subject|Ticket subject]",
+      "description": "$[description|Ticket description]",
+      "status": "$[status|Ticket status]",
+      "priority": "$[      "priority|Ticket priority]"
+    }
+    ```
+
+- icon: '@clearbit/freshdesk.com'
+  name: Update Freshdesk Ticket
+  alias: '@templates/instructions/freshdesk/ticket/update'
+  description: Update a specific support ticket in Freshdesk
+  tags:
+    - freshdesk
+    - ticket
+    - update
+  instruction: |
+    ```fetch
+    PUT https://your-domain.freshdesk.com/api/v2/tickets/$[ticket_id|Ticket ID] HTTP/1.1
+    Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
+    Content-Type: application/json
+
+    {
+      "status": "$[status|Ticket status]",
+      "priority": "$[priority|Ticket priority]",
+      "description": "$[description|Ticket description]"
+    }
+    ```
+
+- icon: '@clearbit/freshdesk.com'
+  name: Retrieve Freshdesk Customer Details
+  alias: '@templates/instructions/freshdesk/customer/details'
+  description: Retrieve details of a specific customer in Freshdesk
+  tags:
+    - freshdesk
+    - customer
+    - details
+  instruction: |
+    ```fetch
+    GET https://your-domain.freshdesk.com/api/v2/customers/$[customer_id|Customer ID] HTTP/1.1
+    Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/woocommerce.com'
+  name: List WooCommerce Orders
+  alias: '@templates/instructions/woocommerce/order/list'
+  description: List all orders in WooCommerce
+  tags:
+    - woocommerce
+    - order
+    - list
+  instruction: |
+    ```fetch
+    GET https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
+    ```
+
+- icon: '@clearbit/woocommerce.com'
+  name: Create WooCommerce Order
+  alias: '@templates/instructions/woocommerce/order/create'
+  description: Create a new order in WooCommerce
+  tags:
+    - woocommerce
+    - order
+    - create
+  instruction: |
+    ```fetch
+    POST https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
+    Content-Type: application/json
+
+    {
+      "payment_method": "$[payment_method|Payment method]",
+      "payment_method_title": "$[payment_method_title|Payment method title]",
+      "set_paid": true,
+      "billing": {
+        "first_name": "$[billing_first_name|Billing first name]",
+        "last_name": "$[billing_last_name|Billing last name]",
+        "address_1": "$[billing_address_1|Billing address line 1]",
+        "city": "$[billing_city|Billing city]",
+        "state": "$[billing_state|Billing state]",
+        "postcode": "$[billing_postcode|Billing postcode]",
+        "country": "$[billing_country|Billing country]",
+        "email": "$[billing_email|Billing email]",
+        "phone": "$[billing_phone|Billing phone]"
+      },
+      "line_items": [
+        {
+          "product_id": $[product_id|Product ID],
+          "quantity": $[quantity|Quantity]
+        }
+      ]
+    }
+    ```
+
+- icon: '@clearbit/woocommerce.com'
+  name: Update WooCommerce Order
+  alias: '@templates/instructions/woocommerce/order/update'
+  description: Update a specific order in WooCommerce
+  tags:
+    - woocommerce
+    - order
+    - update
+  instruction: |
+    ```fetch
+    PUT https://your-domain.com/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
+    Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
+    Content-Type: application/json
+
+    {
+      "status": "$[status|Order status]",
+      "customer_note": "$[customer_note|Customer note]"
+    }
+    ```
+
+- icon: '@clearbit/woocommerce.com'
+  name: Retrieve WooCommerce Product Details
+  alias: '@templates/instructions/woocommerce/product/details'
+  description: Retrieve details of a specific product in WooCommerce
+  tags:
+    - woocommerce
+    - product
+    - details
+  instruction: |
+    ```fetch
+    GET https://your-domain.com/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
+    Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/bigcommerce.com'
+  name: Create BigCommerce Customer
+  alias: '@templates/instructions/bigcommerce/customer/create'
+  description: Create a new customer in BigCommerce
+  tags:
+    - bigcommerce
+    - customer
+    - create
+  instruction: |
+    ```fetch
+    POST https://api.bigcommerce.com/stores/$[store_hash|Store hash]/v3/customers HTTP/1.1
+    Authorization: Bearer ${SECRET_BIGCOMMERCE_API_KEY}
+    Content-Type: application/json
+
+    {
+      "first_name": "$[first_name|First name]",
+      "last_name": "$[last_name|Last name]",
+      "email": "$[email|Email]",
+      "phone": "$[phone|Phone]",
+      "addresses": [
+        {
+          "address1": "$[address1|Address line 1]",
+          "city": "$[city|City]",
+          "state_or_province": "$[state|State]",
+          "postal_code": "$[postal_code|Postal code]",
+          "country_code": "$[country_code|Country code]"
+        }
+      ]
+    }
+    ```
+
+- icon: '@clearbit/bigcommerce.com'
+  name: Retrieve BigCommerce Order Details
+  alias: '@templates/instructions/bigcommerce/order/details'
+  description: Retrieve details of a specific order in BigCommerce
+  tags:
+    - bigcommerce
+    - order
+    - details
+  instruction: |
+    ```fetch
+    GET https://api.bigcommerce.com/stores/$[store_hash|Store hash]/v2/orders/$[order_id|Order ID] HTTP/1.1
+    Authorization: Bearer ${SECRET_BIGCOMMERCE_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/cal.com'
+  name: Create Cal.com Event
+  alias: '@templates/instructions/cal/event/create'
+  description: Create a new event in Cal.com
+  tags:
+    - cal.com
+    - event
+    - create
+  instruction: |
+    ```fetch
+    POST https://api.cal.com/v1/events HTTP/1.1
+    Authorization: Bearer ${SECRET_CAL_API_KEY}
+    Content-Type: application/json
+
+    {
+      "title": "$[title|Event title]",
+      "description": "$[description|Event description]",
+      "start": "$[start|Start time]",
+      "end": "$[end|End time]",
+      "timezone": "$[timezone|Time zone]"
+    }
+    ```
+
+- icon: '@clearbit/cal.com'
+  name: Retrieve Cal.com Event Details
+  alias: '@templates/instructions/cal/event/details'
+  description: Retrieve details of a specific event in Cal.com
+  tags:
+    - cal.com
+    - event
+    - details
+  instruction: |
+    ```fetch
+    GET https://api.cal.com/v1/events/$[event_id|Event ID] HTTP/1.1
+    Authorization: Bearer ${SECRET_CAL_API_KEY}
+    ```
+
+- icon: '@clearbit/cal.com'
+  name: Retrieve All Cal.com Events
+  alias: '@templates/instructions/cal/events/retrieve/all'
+  description: Retrieve all events from Cal.com
+  tags:
+    - cal.com
+    - events
+    - retrieve
+  instruction: |
+    ```fetch
+    GET https://api.cal.com/v1/events HTTP/1.1
+    Authorization: Bearer ${SECRET_CAL_API_KEY}
+    ```
+
+- icon: '@clearbit/cal.com'
+  name: Retrieve Cal.com Events for Date Range
+  alias: '@templates/instructions/cal/events/retrieve/daterange'
+  description: Retrieve events from Cal.com for a specific date range
+  tags:
+    - cal.com
+    - events
+    - retrieve
+  instruction: |
+    ```fetch
+    GET https://api.cal.com/v1/events?start=$[start_date|Start date]&end=$[end_date|End date] HTTP/1.1
+    Authorization: Bearer ${SECRET_CAL_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/calendly.com'
+  name: Create Calendly Event
+  alias: '@templates/instructions/calendly/event/create'
+  description: Create a new event in Calendly
+  tags:
+    - calendly
+    - event
+    - create
+  instruction: |
+    ```fetch
+    POST https://api.calendly.com/scheduled_events HTTP/1.1
+    Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
+    Content-Type: application/json
+
+    {
+      "name": "$[name|Event name]",
+      "description": "$[description|Event description]",
+      "start_time": "$[start_time|Start time]",
+      "end_time": "$[end_time|End time]",
+      "timezone": "$[timezone|Time zone]",
+      "location": "$[location|Event location]"
+    }
+    ```
+
+- icon: '@clearbit/calendly.com'
+  name: Retrieve Calendly Event Details
+  alias: '@templates/instructions/calendly/event/details'
+  description: Retrieve details of a specific event in Calendly
+  tags:
+    - calendly
+    - event
+    - details
+  instruction: |
+    ```fetch
+    GET https://api.calendly.com/scheduled_events/$[event_id|Event ID] HTTP/1.1
+    Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
+    ```
+
+- icon: '@clearbit/calendly.com'
+  name: Retrieve All Calendly Events
+  alias: '@templates/instructions/calendly/events/retrieve/all'
+  description: Retrieve all events from Calendly
+  tags:
+    - calendly
+    - events
+    - retrieve
+  instruction: |
+    ```fetch
+    GET https://api.calendly.com/scheduled_events HTTP/1.1
+    Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
+    ```
+
+- icon: '@clearbit/calendly.com'
+  name: Retrieve Calendly Events for Date Range
+  alias: '@templates/instructions/calendly/events/retrieve/daterange'
+  description: Retrieve events from Calendly for a specific date range
+  tags:
+    - calendly
+    - events
+    - retrieve
+  instruction: |
+    ```fetch
+    GET https://api.calendly.com/scheduled_events?start_time=$[start_time|Start time]&end_time=$[end_time|End time] HTTP/1.1
+    Authorization: Bearer ${SECRET_CALENDLY_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/stripe.com'
+  name: Create Stripe Payment Intent
+  alias: '@templates/instructions/stripe/payment-intent/create'
+  description: Create a new payment intent in Stripe
+  tags:
+    - stripe
+    - payment
+    - create
+  instruction: |
+    ```fetch
+    POST https://api.stripe.com/v1/payment_intents HTTP/1.1
+    Authorization: Bearer ${SECRET_STRIPE_API_KEY}
+    Content-Type: application/x-www-form-urlencoded
+
+    {
+      "amount": "$[amount|Payment amount in cents]",
+      "currency": "$[currency|Currency code]",
+      "payment_method_types[]": "card"
+    }
+    ```
+
+- icon: '@clearbit/stripe.com'
+  name: Retrieve Stripe Payment Details
+  alias: '@templates/instructions/stripe/payment/details'
+  description: Retrieve details of a specific payment in Stripe
+  tags:
+    - stripe
+    - payment
+    - details
+  instruction: |
+    ```fetch
+    GET https://api.stripe.com/v1/payment_intents/$[payment_intent_id|Payment Intent ID] HTTP/1.1
+    Authorization: Bearer ${SECRET_STRIPE_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/paypal.com'
+  name: Create PayPal Payment
+  alias: '@templates/instructions/paypal/payment/create'
+  description: Create a new payment in PayPal
+  tags:
+    - paypal
+    - payment
+    - create
+  instruction: |
+    ```fetch
+    POST https://api-m.sandbox.paypal.com/v1/payments/payment HTTP/1.1
+    Authorization: Bearer ${SECRET_PAYPAL_API_KEY}
+    Content-Type: application/json
+
+    {
+      "intent": "sale",
+      "payer": {
+        "payment_method": "paypal"
+      },
+      "transactions": [
+        {
+          "amount": {
+            "total": "$[total|Total amount]",
+            "currency": "$[currency|Currency code]"
+          },
+          "description": "$[description|Payment description]"
+        }
+      ],
+      "redirect_urls": {
+        "return_url": "$[return_url|Return URL]",
+        "cancel_url": "$[cancel_url|Cancel URL]"
+      }
+    }
+    ```
+
+- icon: '@clearbit/paypal.com'
+  name: Retrieve PayPal Payment Status
+  alias: '@templates/instructions/paypal/payment/status'
+  description: Retrieve the status of a specific payment in PayPal
+  tags:
+    - paypal
+    - payment
+    - status
+  instruction: |
+    ```fetch
+    GET https://api-m.sandbox.paypal.com/v1/payments/payment/$[payment_id|Payment ID] HTTP/1.1
+    Authorization: Bearer ${SECRET_PAYPAL_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
+- icon: '@clearbit/brave.com'
+  name: 'Web Search'
+  alias: '@templates/instructions/brave/search'
+  description: Search the web using Brave Search
+  tags:
+    - brave
+    - search
+  instruction: |
+    ```fetch
+    GET https://api.search.brave.com/res/v1/web/search?q=$[query|Search query]
+    X-Subscription-Token: ${SECRET_BRAVE_SEARCH_API_KEY}
+    Accept: application/json
+    ```
