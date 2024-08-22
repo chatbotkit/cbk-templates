@@ -1980,6 +1980,52 @@
 # ---
 # ---
 
+- icon: '@clearbit/magento.com'
+  name: Search Magento Products
+  alias: '@templates/instructions/magento/search/products'
+  description: Search for products in a Magento store by name or SKU
+  tags:
+    - magento
+    - products
+    - search
+  instruction: |
+    ```fetch
+    GET https://((domain))/rest/V1/products?searchCriteria[filter_groups][0][filters][0][field]=name&searchCriteria[filter_groups][0][filters][0][value]=$[product_name|Product Name]&searchCriteria[filter_groups][0][filters][0][condition_type]=like
+    Authorization: Bearer ${SECRET_MAGENTO_API_KEY}
+    ```
+
+- icon: '@clearbit/magento.com'
+  name: Get Magento Customer Details
+  alias: '@templates/instructions/magento/customer/details'
+  description: Retrieve details of a specific customer in a Magento store
+  tags:
+    - magento
+    - customer
+    - details
+  instruction: |
+    ```fetch
+    GET https://((domain))/rest/V1/customers/$[customer_id|Customer ID]
+    Authorization: Bearer ${SECRET_MAGENTO_API_KEY}
+    ```
+
+- icon: '@clearbit/magento.com'
+  name: Retrieve Magento Order Status
+  alias: '@templates/instructions/magento/order/status'
+  description: Retrieve the status of a specific order in a Magento store
+  tags:
+    - magento
+    - order
+    - status
+  instruction: |
+    ```fetch
+    GET https://((domain))/rest/V1/orders/$[order_id|Order ID]
+    Authorization: Bearer ${SECRET_MAGENTO_API_KEY}
+    ```
+
+# ---
+# ---
+# ---
+
 - icon: '@clearbit/notion.so'
   name: Search Notion
   alias: '@templates/instructions/notion/search'
