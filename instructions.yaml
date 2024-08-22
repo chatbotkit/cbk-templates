@@ -1982,7 +1982,7 @@
 
 - icon: '@clearbit/magento.com'
   name: Search Magento Products
-  alias: '@templates/instructions/magento/search/products'
+  alias: '@templates/instructions/magento/products/search'
   description: Search for products in a Magento store by name or SKU
   tags:
     - magento
