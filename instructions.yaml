@@ -973,7 +973,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.atlassian.net/rest/api/3/issue HTTP/1.1
+    POST https://((domain)).atlassian.net/rest/api/3/issue HTTP/1.1
     Authorization: Basic ${SECRET_JIRA_API_KEY}
     Content-Type: application/json
 
@@ -1015,7 +1015,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.atlassian.net/rest/api/3/issue/$[issue_id|Issue ID] HTTP/1.1
+    GET https://((domain)).atlassian.net/rest/api/3/issue/$[issue_id|Issue ID] HTTP/1.1
     Authorization: Basic ${SECRET_JIRA_API_KEY}
     ```
 
@@ -1033,7 +1033,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    GET https://((domain)).zendesk.com/api/v2/tickets.json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     ```
 
@@ -1047,7 +1047,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    POST https://((domain)).zendesk.com/api/v2/tickets.json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     Content-Type: application/json
 
@@ -1072,7 +1072,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    PUT https://((domain)).zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     Content-Type: application/json
 
@@ -1097,7 +1097,7 @@
     - status
   instruction: |
     ```fetch
-    GET https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    GET https://((domain)).zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     ```
 
@@ -1115,7 +1115,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    GET https://((domain)).freshdesk.com/api/v2/tickets HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     ```
 
@@ -1129,7 +1129,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    POST https://((domain)).freshdesk.com/api/v2/tickets HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     Content-Type: application/json
 
@@ -1152,7 +1152,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-domain.freshdesk.com/api/v2/tickets/$[ticket_id|Ticket ID] HTTP/1.1
+    PUT https://((domain)).freshdesk.com/api/v2/tickets/$[ticket_id|Ticket ID] HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     Content-Type: application/json
 
@@ -1173,7 +1173,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.freshdesk.com/api/v2/customers/$[customer_id|Customer ID] HTTP/1.1
+    GET https://((domain)).freshdesk.com/api/v2/customers/$[customer_id|Customer ID] HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     ```
 
@@ -1191,7 +1191,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://((your-domain.com))/wp-json/wc/v3/orders HTTP/1.1
+    GET https://((((domain)).com))/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
@@ -1205,7 +1205,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://((your-domain.com))/wp-json/wc/v3/orders HTTP/1.1
+    POST https://((((domain)).com))/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -1243,7 +1243,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://((your-domain.com))/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
+    PUT https://((((domain)).com))/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -1263,7 +1263,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://((your-domain.com))/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
+    GET https://((((domain)).com))/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
@@ -2568,7 +2568,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.atlassian.net/rest/api/3/issue HTTP/1.1
+    POST https://((domain)).atlassian.net/rest/api/3/issue HTTP/1.1
     Authorization: Basic ${SECRET_JIRA_API_KEY}
     Content-Type: application/json
 
@@ -2610,7 +2610,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.atlassian.net/rest/api/3/issue/$[issue_id|Issue ID] HTTP/1.1
+    GET https://((domain)).atlassian.net/rest/api/3/issue/$[issue_id|Issue ID] HTTP/1.1
     Authorization: Basic ${SECRET_JIRA_API_KEY}
     ```
 
@@ -2628,7 +2628,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    GET https://((domain)).zendesk.com/api/v2/tickets.json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     ```
 
@@ -2642,7 +2642,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-subdomain.zendesk.com/api/v2/tickets.json HTTP/1.1
+    POST https://((domain)).zendesk.com/api/v2/tickets.json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     Content-Type: application/json
 
@@ -2667,7 +2667,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    PUT https://((domain)).zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     Content-Type: application/json
 
@@ -2692,7 +2692,7 @@
     - status
   instruction: |
     ```fetch
-    GET https://your-subdomain.zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
+    GET https://((domain)).zendesk.com/api/v2/tickets/$[ticket_id|Ticket ID].json HTTP/1.1
     Authorization: Bearer ${SECRET_ZENDESK_API_KEY}
     ```
 
@@ -2710,7 +2710,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    GET https://((domain)).freshdesk.com/api/v2/tickets HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     ```
 
@@ -2724,7 +2724,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.freshdesk.com/api/v2/tickets HTTP/1.1
+    POST https://((domain)).freshdesk.com/api/v2/tickets HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     Content-Type: application/json
 
@@ -2747,7 +2747,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-domain.freshdesk.com/api/v2/tickets/$[ticket_id|Ticket ID] HTTP/1.1
+    PUT https://((domain)).freshdesk.com/api/v2/tickets/$[ticket_id|Ticket ID] HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     Content-Type: application/json
 
@@ -2768,7 +2768,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.freshdesk.com/api/v2/customers/$[customer_id|Customer ID] HTTP/1.1
+    GET https://((domain)).freshdesk.com/api/v2/customers/$[customer_id|Customer ID] HTTP/1.1
     Authorization: Basic ${SECRET_FRESHDESK_API_KEY}
     ```
 
@@ -2786,7 +2786,7 @@
     - list
   instruction: |
     ```fetch
-    GET https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    GET https://((domain)).com/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
@@ -2800,7 +2800,7 @@
     - create
   instruction: |
     ```fetch
-    POST https://your-domain.com/wp-json/wc/v3/orders HTTP/1.1
+    POST https://((domain)).com/wp-json/wc/v3/orders HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -2838,7 +2838,7 @@
     - update
   instruction: |
     ```fetch
-    PUT https://your-domain.com/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
+    PUT https://((domain)).com/wp-json/wc/v3/orders/$[order_id|Order ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     Content-Type: application/json
 
@@ -2858,7 +2858,7 @@
     - details
   instruction: |
     ```fetch
-    GET https://your-domain.com/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
+    GET https://((domain)).com/wp-json/wc/v3/products/$[product_id|Product ID] HTTP/1.1
     Authorization: Basic ${SECRET_WOOCOMMERCE_API_KEY}
     ```
 
