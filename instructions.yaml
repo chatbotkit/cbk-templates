@@ -13,7 +13,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/circle-stack'
+- icon: '@clearbit/chatbotkit.com'
   name: Search Dataset
   alias: '@templates/instructions/dataset/search'
   description: Search a dataset for specific keywords or filters
@@ -29,7 +29,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/globe-alt'
+- icon: '@clearbit/chatbotkit.com'
   name: Fetch Web Page
   alias: '@templates/instructions/webpage/fetch'
   description: Fetch the content of a web page using a URL and convert it to text
@@ -41,7 +41,7 @@
     $[url|the url of the page to fetch]
     ```
 
-- icon: '@heroicons/globe-alt'
+- icon: '@clearbit/chatbotkit.com'
   name: Fetch Web API
   alias: '@templates/instructions/webapi/get'
   description: Fetch data from a web API using a URL and optional parameters
@@ -54,7 +54,7 @@
     Authorization: Bearer ${SECRET_API_KEY}
     ```
 
-- icon: '@heroicons/globe-alt'
+- icon: '@clearbit/chatbotkit.com'
   name: Post Data to Web API
   alias: '@templates/instructions/webapi/post'
   description: Post data to a web API using a URL and JSON payload
@@ -72,7 +72,7 @@
     }
     ```
 
-- icon: '@heroicons/globe-alt'
+- icon: '@clearbit/chatbotkit.com'
   name: Post Data to Web API with Parameters
   alias: '@templates/instructions/webapi/post-params'
   description: Post data to a web API using a URL and form parameters
@@ -95,7 +95,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/at-symbol'
+- icon: '@clearbit/chatbotkit.com'
   name: Send Email
   alias: '@templates/instructions/email/send'
   description: Send an email to a specified recipient using an SMTP server
@@ -111,7 +111,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/document-text'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate Text
   alias: '@templates/instructions/text/generate'
   description: Generate text
@@ -127,7 +127,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/photo'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate Image
   alias: '@templates/instructions/image/generate'
   description: Generate an image
@@ -139,7 +139,7 @@
     ((instructions how to generate an image))
     ```
 
-- icon: '@heroicons/photo'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate Image Using StableDiffusion
   alias: '@templates/instructions/image/stablediffusion'
   description: Generate an image using the StableDiffusion model
@@ -152,7 +152,7 @@
     ((instructions how to generate an image using StableDiffusion))
     ```
 
-- icon: '@heroicons/photo'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate Image Using DALL-E 3
   alias: '@templates/instructions/image/dalle3'
   description: Generate an image using the DALL-E 3 model
@@ -165,7 +165,7 @@
     ((instructions how to generate an image using DALL-E 3))
     ```
 
-- icon: '@heroicons/photo'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate Image Using DALL-E 2
   alias: '@templates/instructions/image/dalle'
   description: Generate an image using the DALL-E 2 model
@@ -178,7 +178,7 @@
     ((instructions how to generate an image using DALL-E))
     ```
 
-- icon: '@heroicons/photo'
+- icon: '@clearbit/chatbotkit.com'
   name: Generate A Logo
   alias: '@templates/instructions/image/logo'
   description: Generate a logo using the DALL-E 3 model
@@ -199,7 +199,7 @@
 # ---
 # ---
 
-- icon: '@heroicons/eye'
+- icon: '@clearbit/chatbotkit.com'
   name: Describe Image
   alias: '@templates/instructions/view/describe'
   description: Describe the content of an image
